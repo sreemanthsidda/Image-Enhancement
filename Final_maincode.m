@@ -1,4 +1,4 @@
-%%%image enhancement using Sparse Representation%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%image enhancement using Sparse Representation%%%
 function Final_maincode()
 clc
 clear all 
