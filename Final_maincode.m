@@ -144,7 +144,7 @@ subplot(224),imshow(N,[]),title('SVD Method')
   [mssim, ssim_map] = ssim(N_sim,I_sim, K, window, L);
   fprintf('\n The SSIM value is %f \n',mssim);
 
-%%%%%% Sparse Representation  %%%%%%%%%
+%%% Sparse Representation Technique %%%
 input_image = im2double(mat2gray(N));
 im_withnoise=N;
 [~,~] = size(im_withnoise);
