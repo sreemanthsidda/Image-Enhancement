@@ -23,11 +23,9 @@ figure,imshow(t);
 title('SMQT Image');
 im=wiener2(t);
 %% Eqn 2
-
 [cA,cH,cV,cD]  = dwt2(im,'haar');
 figure,imshow([cA cH; cV cD],[]);
 title('DWT 1st level');
-
 [LL,LH,HL,HH] = dwt2(im,'db4');
 % figure,
 % subplot(221),imshow(LL),title('Low-low subband')
@@ -78,9 +76,6 @@ for i=1:size(HH,1)
     end
 end
 mean_hh=mean_hh*4/numel(im);
-
-
-
 %% Eqn 4
 mean_max=max([mean_ll,mean_lh,mean_hl,mean_hh]);
 %% Eqn 5
@@ -145,17 +140,13 @@ subplot(224),imshow(N,[]),title('SVD Method')
    I_sim=uint8(I);
   [mssim, ssim_map] = ssim(N_sim,I_sim, K, window, L);
   fprintf('\n The SSIM value is %f \n',mssim);
-
 %%% Sparse Representation Technique %%%
 input_image = im2double(mat2gray(N));
 im_withnoise=N;
 [~,~] = size(im_withnoise);
 % obtain the Gaussian Filter with the size 5*5
-
 % imshow(im_withoutnoise_gaussian,[])
-
     mean_matrix_8x8 = zeros( 8,8 );
-
 for m = 0:63
       for n = 0:63
          blk_matrix_8x8 = input_image(m*8+[1:8],n*8+[1:8]);        
@@ -194,12 +185,9 @@ title('Histogram of Final Enhanced Image');
 % figure;imshow(Fi);
 % im_spar=uint8(imn_enh);
 ky=input_image;
-
 %%% Gaussian Filter %%%
  function b = filter2enhance(varargin)
-
-[a,h,boundary,flags] = parse_inputs(varargin{:});
-  
+[a,h,boundary,flags] = parse_inputs(varargin{:}); 
 rank_a = ndims(a);
 rank_h = ndims(h);
   
@@ -501,7 +489,6 @@ end
 
 %--------------------------------------------------------------
 function displayInternalError(string)
-
 eid = sprintf('Images:%s:internalError',mfilename);
 msg = sprintf('Internal error: %s is not valid.',upper(string));
 error(eid,'%s',msg);
